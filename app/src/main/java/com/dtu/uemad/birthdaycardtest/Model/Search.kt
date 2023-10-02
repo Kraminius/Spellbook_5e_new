@@ -15,14 +15,12 @@ class Search {
         for(name in namesList){
             for(keyword in keywords){
                 if(keyword in name){
-                    println("Found Match: $name")
                     matches.add(name)
                     break
                 }
             }
         }
         toReturn.setSpellNamesList(matches.toList())
-        toReturn.printNamesToConsole()
         return toReturn
     }
 

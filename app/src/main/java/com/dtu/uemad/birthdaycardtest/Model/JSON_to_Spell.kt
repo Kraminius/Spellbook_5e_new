@@ -12,7 +12,6 @@ class JSON_to_Spell {
         return spell
     }
     fun jsonToSpellList(json : String) : SpellList?{
-        println(json)
         val spells = SpellList()
         spells.setSpellNamesList(extractIndexesFromJson(json))
         return spells

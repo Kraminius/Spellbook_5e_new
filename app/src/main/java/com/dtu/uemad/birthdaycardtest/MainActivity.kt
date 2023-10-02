@@ -26,29 +26,9 @@ import com.dtu.uemad.birthdaycardtest.view.ScreenView
 
 class MainActivity : ComponentActivity() {
     private val screen = ScreenView()
-    private val spells = SpellController()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val spells = SpellController()
-        var spell = spells.getSpellFromName("fireball")
-        if (spell != null) {
-            println(spell.castingTime)
-        }
-        else println("Spell is null")
-        val spellList = spells.getAllSpellsList()
-        if(spellList != null){
-            println("Found a list with ${spellList.getSpellNamesList().size} spells")
-            for(s in spellList.getSpellNamesList()){
-                println(s)
-            }
-            val keywords = "fireball"
-            val searchedSpellList = spells.searchSpellList(spellList, keywords)
-            spells.loadSpellList(searchedSpellList)
-        }
-        else println("could not load the spell list")
-
-
-
 
         setContent {
             screen.Screen()

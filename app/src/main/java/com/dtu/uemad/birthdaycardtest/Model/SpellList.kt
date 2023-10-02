@@ -22,4 +22,15 @@ class SpellList {
             println("- $name")
         }
     }
+    fun printInfoToConsole(){
+        println("Printing Spell Info")
+        for(spell in spellInfoList){
+            println("${spell.name}")
+            println("- Classes: ${spell.classes}")
+            println("- Casting Time: ${spell.castingTime}")
+            println("- Duration: ${spell.duration}")
+            println("- Spell Level: ${spell.level}")
+            println("- Components: ${spell.components}")
+        }
+    }
 }
