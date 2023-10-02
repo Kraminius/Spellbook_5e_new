@@ -1,74 +1,91 @@
 package com.dtu.uemad.birthdaycardtest.Model
-
+import com.google.gson.annotations.SerializedName
 class Spell_Info {
 
 
-    data class DnD5eSpell(
-        val index: String,
-        val name: String,
-        val desc: List<String>,
-        val higher_level: List<String>,
-        val range: String,
-        val components: List<String>,
-        val material: String,
-        val ritual: Boolean,
-        val duration: String,
-        val concentration: Boolean,
-        val casting_time: String,
-        val level: Int,
-        val damage: DamageInfo,
-        val dc: DcInfo,
-        val area_of_effect: AreaOfEffectInfo,
-        val school: SchoolInfo,
-        val classes: List<ClassInfo>,
-        val subclasses: List<SubclassInfo>,
-        val url: String
+
+
+    data class SpellInfo(
+        @SerializedName("index") val index: String?,
+        @SerializedName("name") val name: String?,
+        @SerializedName("desc") val description: List<String>?,
+        @SerializedName("higher_level") val higherLevelDescription: List<String>?,
+        @SerializedName("range") val range: String?,
+        @SerializedName("components") val components: List<String>?,
+        @SerializedName("material") val material: String?,
+        @SerializedName("ritual") val isRitual: Boolean?,
+        @SerializedName("duration") val duration: String?,
+        @SerializedName("concentration") val isConcentration: Boolean?,
+        @SerializedName("casting_time") val castingTime: String?,
+        @SerializedName("level") val level: Int?,
+        @SerializedName("school") val school: SpellSchool?,
+        @SerializedName("classes") val classes: List<SpellClass>?,
+        @SerializedName("subclasses") val subclasses: List<SpellClass>?,
+        @SerializedName("url") val url: String?,
+        @SerializedName("attack_type") val attackType: String?,
+        @SerializedName("damage") val damage: SpellDamage?,
+        @SerializedName("dc") val dc: SpellDC?,
+        @SerializedName("area_of_effect") val areaOfEffect: SpellAreaOfEffect?,
+        @SerializedName("heal_at_slot_level") val healAtSlotLevel: SpellHealAtSlotLevel?,
+        @SerializedName("higher_level_ability") val higherLevelAbility: List<String>?,
+        @SerializedName("archetype") val archetype: String?,
+        @SerializedName("race") val race: String?,
+        @SerializedName("time_of_day") val timeOfDay: String?,
+        @SerializedName("circle") val circle: String?,
+        @SerializedName("domain") val domain: String?,
+        @SerializedName("eldritch_invocations") val eldritchInvocations: String?,
+        @SerializedName("patron") val patron: String?,
+        @SerializedName("oaths") val oaths: String?,
+        @SerializedName("sorcerous_origins") val sorcerousOrigins: String?,
+        @SerializedName("otherworldly_patrons") val otherworldlyPatrons: String?
     )
 
-    data class DamageInfo(
-        val damage_type: DamageType,
-        val damage_at_slot_level: Map<String, String>
+    data class SpellSchool(
+        @SerializedName("index") val index: String?,
+        @SerializedName("name") val name: String?,
+        @SerializedName("url") val url: String?
+    )
+
+    data class SpellClass(
+        @SerializedName("index") val index: String?,
+        @SerializedName("name") val name: String?,
+        @SerializedName("url") val url: String?
+    )
+
+    data class SpellDamage(
+        @SerializedName("damage_type") val damageType: DamageType?,
+        @SerializedName("damage_at_slot_level") val damageAtSlotLevel: SpellDamageAtSlotLevel?
     )
 
     data class DamageType(
-        val index: String,
-        val name: String,
-        val url: String
+        @SerializedName("index") val index: String?,
+        @SerializedName("name") val name: String?
     )
 
-    data class DcInfo(
-        val dc_type: DcType,
-        val dc_success: String
+    data class SpellDamageAtSlotLevel(
+        @SerializedName("level") val level: Int?,
+        @SerializedName("damage") val damage: List<String>?
     )
 
-    data class DcType(
-        val index: String,
-        val name: String,
-        val url: String
+    data class SpellDC(
+        @SerializedName("dc_type") val dcType: SpellDCType?,
+        @SerializedName("dc_success") val dcSuccess: String?,
+        @SerializedName("dc_failure") val dcFailure: String?
     )
 
-    data class AreaOfEffectInfo(
-        val type: String,
-        val size: Int
+    data class SpellDCType(
+        @SerializedName("index") val index: String?,
+        @SerializedName("name") val name: String?
     )
 
-    data class SchoolInfo(
-        val index: String,
-        val name: String,
-        val url: String
+    data class SpellAreaOfEffect(
+        @SerializedName("type") val type: String?,
+        @SerializedName("size") val size: String?
     )
 
-    data class ClassInfo(
-        val index: String,
-        val name: String,
-        val url: String
+    data class SpellHealAtSlotLevel(
+        @SerializedName("level") val level: Int?,
+        @SerializedName("healing") val healing: List<String>?
     )
-
-    data class SubclassInfo(
-        val index: String,
-        val name: String,
-        val url: String
-    )
-
 
 }
